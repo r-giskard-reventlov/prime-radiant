@@ -12,7 +12,7 @@ public class EratosthenesPrimeGeneratorTest {
     private final PrimeGenerator testSubject;
 
     public EratosthenesPrimeGeneratorTest() {
-        testSubject = new EratosthenesPrimeGenerator();
+        testSubject = new EratosthenesPrimeGenerator(10);
     }
 
     @Test
