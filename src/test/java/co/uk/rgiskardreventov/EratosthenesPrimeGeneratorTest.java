@@ -27,4 +27,18 @@ public class EratosthenesPrimeGeneratorTest {
         int[] primes = testSubject.generateFixedNumberOfPrimes(5);
     }
 
+    @Test
+    public void generateFixedNumberOfPrimes_generateFirstFourPrimes() throws Exception {
+        int[] primes = testSubject.generateFixedNumberOfPrimes(4);
+        int[] expected = new int[]{2, 3, 5, 7};
+        assertTrue(Arrays.equals(primes, expected));
+    }
+
+    @Test
+    public void generateFixedNumberOfPrimes_requestZeroPrimes() throws Exception {
+        int[] primes = testSubject.generateFixedNumberOfPrimes(0);
+        int[] expected = new int[]{};
+        assertTrue(Arrays.equals(primes, expected));
+    }
+
 }

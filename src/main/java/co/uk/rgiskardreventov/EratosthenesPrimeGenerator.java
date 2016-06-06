@@ -12,6 +12,9 @@ public class EratosthenesPrimeGenerator implements PrimeGenerator {
     }
 
     public int[] generateFixedNumberOfPrimes(int n) {
+        if(n < 1) {
+            return new int[]{};
+        }
         boolean[] sieve = initialiseSieve();
         sieve[0] = false;
         sieve[1] = false;
