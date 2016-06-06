@@ -26,7 +26,7 @@ public class EratosthenesPrimeGenerator implements PrimeGenerator {
         if(primesFound >= n) {
             return primesInSieve(sieve, n);
         }
-        throw new SieveToSmallException("The size of the sieve is too small to provide [" + n + "] primes. Try increasing the size of the sieve");
+        throw new SieveTooSmallException("The size of the sieve is too small to provide [" + n + "] primes. Try increasing the size of the sieve");
     }
 
     private int[] primesInSieve(boolean[] sieve, int n) {

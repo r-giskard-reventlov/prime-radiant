@@ -22,4 +22,9 @@ public class EratosthenesPrimeGeneratorTest {
         assertTrue(Arrays.equals(primes, expected));
     }
 
+    @Test(expected=SieveTooSmallException.class)
+    public void generateFixedNumberOfPrimes_sieveTooSmall() throws Exception {
+        int[] primes = testSubject.generateFixedNumberOfPrimes(5);
+    }
+
 }
