@@ -2,6 +2,8 @@ package co.uk.rgiskardreventov;
 
 import org.junit.Test;
 import java.util.Arrays;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -12,7 +14,7 @@ public class EratosthenesPrimeGeneratorTest {
     private final PrimeGenerator testSubject;
 
     public EratosthenesPrimeGeneratorTest() {
-        testSubject = new EratosthenesPrimeGenerator(10);
+        testSubject = new EratosthenesPrimeGenerator(100000);
     }
 
     @Test
@@ -39,6 +41,13 @@ public class EratosthenesPrimeGeneratorTest {
         int[] primes = testSubject.generateFixedNumberOfPrimes(0);
         int[] expected = new int[]{};
         assertTrue(Arrays.equals(primes, expected));
+    }
+
+    @Test
+    public void generateFixedNumberOfPrimes_request5000thPrime() throws Exception {
+        int[] primes = testSubject.generateFixedNumberOfPrimes(5000);
+        int lastPrime = primes[primes.length - 1];
+        assertEquals(48611, lastPrime);
     }
 
 }
