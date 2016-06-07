@@ -24,7 +24,7 @@ public class EratosthenesPrimeGeneratorTest {
 
     @Test(expected=SieveTooSmallException.class)
     public void generateFixedNumberOfPrimes_sieveTooSmall() throws Exception {
-        int[] primes = testSubject.generateFixedNumberOfPrimes(5);
+        testSubject.generateFixedNumberOfPrimes(5);
     }
 
     @Test
