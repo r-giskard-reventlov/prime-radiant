@@ -1,4 +1,4 @@
-package co.uk.rgiskardreventov;
+package uk.co.rgiskardreventlov;
 
 import org.junit.Test;
 import java.util.Arrays;
@@ -11,10 +11,15 @@ import static org.junit.Assert.assertTrue;
  */
 public class EratosthenesPrimeGeneratorTest {
 
+    public static final int SIEVE_SIZE = 100000;
+    public static final int L1_CACHE_SIZE_IN_KILOBYTES = 32;
+    public static final int SEGMENT_SIZE_IN_BYTES = L1_CACHE_SIZE_IN_KILOBYTES * 1024;
+    public static final int N_VALUE_OUTSIDE_SIEVE_RANGE = Integer.MAX_VALUE / 32;
+
     private final PrimeGenerator testSubject;
 
     public EratosthenesPrimeGeneratorTest() {
-        testSubject = new EratosthenesPrimeGenerator(100000);
+        testSubject = new EratosthenesPrimeGenerator(SEGMENT_SIZE_IN_BYTES, SIEVE_SIZE);
     }
 
     @Test
@@ -26,7 +31,7 @@ public class EratosthenesPrimeGeneratorTest {
 
     @Test(expected=SieveTooSmallException.class)
     public void generateFixedNumberOfPrimes_sieveTooSmall() throws Exception {
-        testSubject.generateFixedNumberOfPrimes(5);
+        testSubject.generateFixedNumberOfPrimes(N_VALUE_OUTSIDE_SIEVE_RANGE);
     }
 
     @Test

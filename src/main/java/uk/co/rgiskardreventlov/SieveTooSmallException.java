@@ -1,4 +1,4 @@
-package co.uk.rgiskardreventov;
+package uk.co.rgiskardreventlov;
 
 /**
  * Created by justin on 6/6/16.

@@ -1,4 +1,4 @@
-package co.uk.rgiskardreventov;
+package uk.co.rgiskardreventlov;
 
 import org.junit.After;
 import org.junit.Before;

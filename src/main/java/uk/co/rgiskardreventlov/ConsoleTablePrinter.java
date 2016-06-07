@@ -1,4 +1,4 @@
-package co.uk.rgiskardreventov;
+package uk.co.rgiskardreventlov;
 
 /**
  * Created by justin on 6/7/16.
@@ -20,7 +20,7 @@ public class ConsoleTablePrinter implements TablePrinter {
         return String.valueOf(lastValueTableValue).length();
     }
 
-    private void printEntry(int spacing, int val) {
+    private void printEntry(int spacing, long val) {
         int spacingWithPadding = spacing + 1;
         String format = "|%" + spacingWithPadding + "d ";
         System.out.print(String.format(format, val));
@@ -38,7 +38,7 @@ public class ConsoleTablePrinter implements TablePrinter {
                 if(j == 0) {
                     printEntry(spacingRequired, values[i]);
                 }
-                printEntry(spacingRequired, values[i] * values[j]);
+                printEntry(spacingRequired, values[i] * (long)values[j]);
             }
             System.out.print("\n");
         }
