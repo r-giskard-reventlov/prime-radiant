@@ -5,7 +5,7 @@ package uk.co.rgiskardreventlov;
  */
 public class PrimePrinter {
 
-    public static final int SIEVE_SIZE = 100000;
+    public static final int SIEVE_SIZE = Integer.MAX_VALUE / 32;
     public static final int L1_CACHE_SIZE_IN_KILOBYTES = 32;
     public static final int SEGMENT_SIZE_IN_BYTES = L1_CACHE_SIZE_IN_KILOBYTES * 1024;
 

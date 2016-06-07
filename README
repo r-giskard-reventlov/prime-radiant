@@ -1,3 +1,63 @@
 prime-radiant
 =============
 
+Simple command line application which can be used to generate prime
+numbers up to a specified limit.
+
+The algorithm used is a segmented sieve of eratosthenes. The benefits
+of this approach are the reduction in the size of memory usage and
+more efficient use of CPU cache meaning less round trips to memory.
+
+The performance on my limited laptop (having 2 GB RAM) is reasonable,
+generating the fist 1M primes in appox. 1/3 second which seems
+reasonable.
+
+I'm tired now so that's enough :-)
+
+
+dependencies
+------------
+
+maven (3.3.9 - used to test and run)
+java  (1.8.0_92 - used to test and run)
+
+usage
+-----
+
+from project directory:
+
+./prime-radiant <n> whre n is the number of primes to generate
+
+
+limitations
+-----------
+
+- I've chosen to limit the sieve size to the maximum integer size
+  which is represented in java... I've done this for simplicity.
+  
+- The console based presentation is a bit rough but fits the
+  requirements with minimal effort.
+
+future work (if I had more time)
+--------------------------------
+
+- The benefit of splitting the chunks of processing into segments is
+  that this approach should be well suited to multi core
+  processing. The layers of CPU cache should mean that each core can
+  run almost independently of other cores. It shouldn't take too much
+  work to split the work up etween cores.
+
+- Could use the AWS command line tools to spin up multiple machines
+  and distribute the load (segments) between machines, reducing the
+  primes on a single coordinating machine.
+
+- The use of BigInteger should provide a much larger sieve when
+  alowing larger prime numbers to be generated and should be almost
+  interchangeable with the Integer representation.
+
+- Would be nice to have a web presentation tier which should be easy
+  enough given that the presentation has been seperated from the prime
+  number generation.
+
+
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "usage: prime-radiant <n> where n is the number of prime numbers to generate"
+    exit 1
+fi
+
+mvn clean compile exec:java -Dexec.args="$1"
