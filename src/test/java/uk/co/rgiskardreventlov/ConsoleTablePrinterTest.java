@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 
 import static org.junit.Assert.*;
 
@@ -18,18 +20,8 @@ public class ConsoleTablePrinterTest {
     private final ByteArrayOutputStream outContent;
 
     public ConsoleTablePrinterTest() {
-        this.testSubject = new ConsoleTablePrinter();
         this.outContent = new ByteArrayOutputStream();
-    }
-
-    @Before
-    public void setUpStreams() {
-        System.setOut(new PrintStream(outContent));
-    }
-
-    @After
-    public void cleanUpStreams() {
-        System.setOut(null);
+        this.testSubject = new ConsoleTablePrinter(new PrintStream(this.outContent));
     }
 
     @Test

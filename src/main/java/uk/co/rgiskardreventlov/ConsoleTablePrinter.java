@@ -1,9 +1,17 @@
 package uk.co.rgiskardreventlov;
 
+import java.io.PrintStream;
+
 /**
  * Created by justin on 6/7/16.
  */
 public class ConsoleTablePrinter implements TablePrinter {
+
+    private final PrintStream out;
+
+    public ConsoleTablePrinter(PrintStream out) {
+        this.out = out;
+    }
 
     public void printMultiplicationTable(int[] values) {
         if(values.length == 0) {
@@ -23,13 +31,13 @@ public class ConsoleTablePrinter implements TablePrinter {
     private void printEntry(int spacing, long val) {
         int spacingWithPadding = spacing + 1;
         String format = "|%" + spacingWithPadding + "d ";
-        System.out.print(String.format(format, val));
+        out.print(String.format(format, val));
     }
 
     private void printEntry(int spacing) {
         int spacingWithPadding = spacing + 1;
         String format = "|%" + spacingWithPadding + "s ";
-        System.out.print(String.format(format, ""));
+        out.print(String.format(format, ""));
     }
 
     private void printBody(int[] values, int spacingRequired) {
@@ -40,7 +48,7 @@ public class ConsoleTablePrinter implements TablePrinter {
                 }
                 printEntry(spacingRequired, values[i] * (long)values[j]);
             }
-            System.out.print("\n");
+            out.print("\n");
         }
     }
 
@@ -49,6 +57,6 @@ public class ConsoleTablePrinter implements TablePrinter {
         for(int i=0; i<values.length; i++) {
             printEntry(spacingRequired, values[i]);
         }
-        System.out.print("\n");
+        out.print("\n");
     }
 }

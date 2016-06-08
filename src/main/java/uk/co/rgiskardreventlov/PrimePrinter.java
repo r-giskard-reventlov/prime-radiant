@@ -25,7 +25,7 @@ public class PrimePrinter {
     public static void main(String[] args) {
         int n = nthPrime(args);
         PrimeGenerator pg = new EratosthenesPrimeGenerator(SEGMENT_SIZE_IN_BYTES, SIEVE_SIZE);
-        TablePrinter tp = new ConsoleTablePrinter();
+        TablePrinter tp = new ConsoleTablePrinter(System.out);
         PrimePrinter pp = new PrimePrinter(pg, tp);
         pp.printMultiplicationTableForFirstNPrimes(n);
     }
