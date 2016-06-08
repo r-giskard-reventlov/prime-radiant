@@ -46,14 +46,14 @@ future work (if I had more time)
   that this approach should be well suited to multi core
   processing. The layers of CPU cache should mean that each core can
   run almost independently of other cores. It shouldn't take too much
-  work to split the work up etween cores.
+  work to split the work up between cores.
 
 - Could use the AWS command line tools to spin up multiple machines
   and distribute the load (segments) between machines, reducing the
   primes on a single coordinating machine.
 
 - The use of BigInteger should provide a much larger sieve when
-  alowing larger prime numbers to be generated and should be almost
+  allowing larger prime numbers to be generated and should be almost
   interchangeable with the Integer representation.
 
 - Would be nice to have a web presentation tier which should be easy
